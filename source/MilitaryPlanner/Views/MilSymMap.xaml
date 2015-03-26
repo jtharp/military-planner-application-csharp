@@ -1,0 +1,47 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:esri="http://schemas.esri.com/arcgis/runtime/2013"
+             xmlns:viewModels="clr-namespace:MilitaryPlanner.ViewModels"
+             xmlns:helper="clr-namespace:MilitaryPlanner.Helpers"
+             xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+    xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions" x:Class="MilitaryPlanner.Views.MilSymMap"
+             xmlns:behavior="clr-namespace:MilitaryPlanner.Behavior"
+             mc:Ignorable="d" 
+             d:DesignHeight="500" d:DesignWidth="500">
+    <UserControl.Resources>
+        <viewModels:MilSymViewModel x:Key="MyMapViewModel" />
+        <BooleanToVisibilityConverter x:Key="BoolConverter" />
+    </UserControl.Resources>
+    <DockPanel DataContext="{StaticResource MyMapViewModel}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <Grid Background="Gray" Height="30" DockPanel.Dock="Top">
+            <StackPanel Orientation="Horizontal">
+                <Label>Scale</Label>
+                <TextBox Width="50" BorderBrush="Black" BorderThickness="2" Text="{Binding Scale}"></TextBox>
+            </StackPanel>
+        </Grid>
+        
+        <Grid DataContext="{StaticResource MyMapViewModel}"
+		    helper:EventToCommand.Event="FrameworkElement.Loaded"
+		    helper:EventToCommand.CommandParameter="{Binding ElementName=MyMapView}"
+		    helper:EventToCommand.Command="{Binding SetMapCommand}"
+              VerticalAlignment="Stretch"
+              DockPanel.Dock="Bottom">
+        
+            <esri:MapView x:Name="MyMapView">
+                <i:Interaction.Behaviors>
+                    <behavior:FrameworkElementDropBehavior/>
+                </i:Interaction.Behaviors>
+                <esri:Map x:Name="MyMap">
+                    <!-- ArcGIS Online Tiled Basemap Layer -->
+                    <esri:ArcGISTiledMapServiceLayer ID="NGS_Topo_US_2D" ServiceUri="http://services.arcgisonline.com/arcgis/rest/services/NGS_Topo_US_2D/MapServer"/>
+                </esri:Map>
+                <esri:MapView.GraphicsOverlays>
+                    <esri:GraphicsOverlay ID="graphicsOverlay" IsVisible="True"/>
+                </esri:MapView.GraphicsOverlays>
+            </esri:MapView>
+        </Grid>
+    </DockPanel>
+</UserControl>

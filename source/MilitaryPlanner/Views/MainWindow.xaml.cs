@@ -10,6 +10,7 @@ namespace MilitaryPlanner.Views
         public MainWindow()
         {
             //InitializeComponent();
+            GalaSoft.MvvmLight.Threading.DispatcherHelper.Initialize();
         }
     }
 }

@@ -24,6 +24,7 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="260"/>
             <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
         <UserControl Grid.RowSpan="2" Content="{Binding OOBView}" />
@@ -33,6 +34,7 @@
             <Slider Minimum="{Binding SliderMinimum}" Maximum="{Binding SliderMaximum}" Value="{Binding SliderValue}" TickFrequency="1" IsSnapToTickEnabled="True" TickPlacement="BottomRight" Margin="10,0" SmallChange="1" Cursor="Cross" />
         </DockPanel>
         <UserControl Grid.Column="1" Content="{Binding MapView}" Visibility="Visible"/>
+        <UserControl Grid.Column="2" Content="{Binding MilSymMapView}" Visibility="Visible"> </UserControl>
     </Grid>
 </Window>
 

@@ -8,7 +8,6 @@
              xmlns:helper="clr-namespace:MilitaryPlanner.Helpers"
              xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
     xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions" x:Class="MilitaryPlanner.Views.MapView"
-             xmlns:xceed="http://schemas.xceed.com/wpf/xaml/toolkit"
              xmlns:behavior="clr-namespace:MilitaryPlanner.Behavior"
              mc:Ignorable="d" 
              d:DesignHeight="500" d:DesignWidth="500">
@@ -140,13 +139,11 @@
                     <TextBlock Width="30" Margin="2"
                                    VerticalAlignment="Center"
                                    Text="Start" />
-                    <xceed:DateTimePicker Value="{Binding CurrentTimeExtent.Start}" Width="140" HorizontalAlignment="Left" Margin="3,0,0,0" FormatString="yyyy/MM/dd HH:mm" Format="Custom" TimeFormat="Custom" TimeFormatString="HH:mm" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="2,2,2,2">
                     <TextBlock Width="30" Margin="2"
                                    VerticalAlignment="Center"
                                    Text="End" />
-                    <xceed:DateTimePicker Value="{Binding CurrentTimeExtent.End}" Width="140" HorizontalAlignment="Left" Margin="3,0,0,0" FormatString="yyyy/MM/dd HH:mm" Format="Custom" TimeFormat="Custom" TimeFormatString="HH:mm" />
                 </StackPanel>
             </StackPanel>
         </Border>

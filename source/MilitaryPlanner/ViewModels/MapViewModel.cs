@@ -973,6 +973,21 @@ namespace MilitaryPlanner.ViewModels
 
                     _editState = EditState.None;
 
+                    var sid = _selectedSymbol.SymbolID + "****X";
+                    var points = new List<MapPoint>();
+                    if (geometry is Polyline)
+                    {
+                        var pl = geometry as Polyline;
+                        foreach (var part in pl.Parts)
+                        {
+                            points.AddRange(part.GetPoints());
+                        }
+                    }
+
+                    var bbox = geometry.Extent.Expand(1.2);
+
+                    new ESRIGraphicAdded(){SID = sid, points = points, Bbox = bbox}.Send();
+
                     // process symbol with geometry
                     ProcessSymbol(_selectedSymbol, geometry);
                 }

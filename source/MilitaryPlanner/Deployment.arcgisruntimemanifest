@@ -1,0 +1,34 @@
+{
+  "version": "10.2.5",
+  "suppress": [],
+  "include": {
+    "ArcGIS Runtime": true,
+    "Specialized Symbology": {
+      "Military (MIL2525C)": true
+    },
+    "Local Server": {
+      "Geocoding": true,
+      "Geoprocessing": {
+        "Spatial Analyst": true
+      },
+      "Python Scripting": {
+        "Python Geoprocessing tools": true
+      },
+      "Additional Data Formats": {
+        "Vector": true,
+        "Raster": {
+          "Mosaic Rasters": true,
+          "ECW Rasters": true
+        },
+        "SDE": {
+          "Postgres SQL": true,
+          "SQL Server": true
+        }
+      },
+      "Additional Projection Engine Transformations": true,
+      "Debug": {
+        "Logging": true
+      }
+    }
+  }
+}

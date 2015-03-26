@@ -120,6 +120,8 @@ namespace MilitaryPlanner.ViewModels
         }
 
         private OrderOfBattleView _OOBView;
+        private MilSymMap _milSymMapView;
+
         public OrderOfBattleView OOBView
         {
             get { return _OOBView; }
@@ -133,6 +135,16 @@ namespace MilitaryPlanner.ViewModels
             }
         }
 
+        public MilSymMap MilSymMapView
+        {
+            get { return _milSymMapView; }
+            set
+            {
+                _milSymMapView = value;
+                RaisePropertyChanged(() => MilSymMapView);
+            }
+        }
+
         #endregion
 
         #region Commands
@@ -142,6 +154,8 @@ namespace MilitaryPlanner.ViewModels
         public RelayCommand SaveCommand { get; set; }
         public RelayCommand OpenCommand { get; set; }
         public RelayCommand EditMissionPhasesCommand { get; set; }
+
+        
 
         #endregion
 
@@ -169,6 +183,7 @@ namespace MilitaryPlanner.ViewModels
             EditMissionPhasesCommand = new RelayCommand(OnEditMissionPhases);
             
             MapView = new MapView();
+            _milSymMapView = new MilSymMap();
             OOBView = new OrderOfBattleView();
         }
 

@@ -76,10 +76,12 @@ namespace MilitaryPlanner.ViewModels
             {
                 ArcGISRuntimeEnvironment.Initialize();
             }
-
+            var p1 = ArcGISRuntimeEnvironment.SymbolsPath;
             // hook the commands
             SearchCommand = new RelayCommand(OnSearch);
             SymbolChangedCommand = new RelayCommand(OnSymbolChanged);
+
+            
 
             // Create a new MilitarySymbolDictionary instance 
             MilitarySymbolDictionary = new SymbolDictionary(SymbolDictionaryType.Mil2525c);
