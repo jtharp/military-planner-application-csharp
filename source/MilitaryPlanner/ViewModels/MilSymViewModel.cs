@@ -34,10 +34,7 @@ namespace MilitaryPlanner.ViewModels
 
         public int Scale
         {
-            get
-            {
-                return _scale;
-            }
+            get { return _scale; }
             set
             {
                 _scale = value;
